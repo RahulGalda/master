@@ -149,14 +149,15 @@ a:active {
 			  color: white;
 			} */
 
-#content {
-  /* background-color: #000000; */
-  /* height: 100vw; */
+/* #content {
+  background-color: #000000; 
+   height: 100vw;
+
   padding-top: 20px;
   padding-bottom: 20px;
   display: block;
   margin-right: 10px;
-}
+} */
 
 button {
   width: 5rem;
@@ -198,4 +199,16 @@ button:hover {
 
 .disabled {
   opacity: 0.6;
+}
+
+.dice_container {
+  width: 150px;
+  height: 150px;
+  position: relative;
+  -webkit-perspective: 800px;
+  -moz-perspective: 800px;
+  -o-perspective: 800px;
+  perspective: 800px;
+  display: inline-block;
+  margin-right: 10px;
 }
