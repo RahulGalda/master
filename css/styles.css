@@ -1,136 +1,137 @@
+/* Layout */
+body {
+  min-width: 630px;
+}
 
-		/* Layout */
-		body {
-			min-width: 630px;
-		}
+#container {
+  padding-left: 200px;
+  padding-right: 190px;
+}
 
-		#container {
-			padding-left: 200px;
-			padding-right: 190px;
-		}
-		
-		#container .column {
-			position: relative;
-			float: left;
-		}
-		
-		#center {
-			padding: 10px 20px;
-			width: 100%;
-		}
-		
-		#left {
-			width: 180px;
-			padding: 0 10px;
-			right: 240px;
-			margin-left: -100%;
-		}
-		
-		#right {
-			width: 130px;
-			padding: 0 10px;
-			margin-right: -100%;
-		}
-		
-		#footer {
-			clear: both;
-		}
-		
-		/* IE hack */
-		* html #left {
-			left: 150px;
-		}
+#container .column {
+  position: relative;
+  float: left;
+}
 
-		/* Make the columns the same height as each other */
-		#container {
-			overflow: hidden;
-		}
+#center {
+  padding: 10px 20px;
+  width: 100%;
+}
 
-		#container .column {
-			padding-bottom: 1001em;
-			margin-bottom: -1000em;
-		}
+#left {
+  width: 180px;
+  padding: 0 10px;
+  right: 240px;
+  margin-left: -100%;
+}
 
-		/* Fix for the footer */
-		* html body {
-			overflow: hidden;
-		}
-		
-		* html #footer-wrapper {
-			float: left;
-			position: relative;
-			width: 100%;
-			padding-bottom: 10010px;
-			margin-bottom: -10000px;
-			background: #fff;
-		}
+#right {
+  width: 130px;
+  padding: 0 10px;
+  margin-right: -100%;
+}
 
-		/* Aesthetics */
-		body {
-			margin: 0;
-			padding: 0;
-			font-family:Sans-serif;
-			line-height: 1.5em;
-		}
-		
-		p {
-			color: #555;
-		}
+#footer {
+  clear: both;
+}
 
-		nav ul {
-			list-style-type: none;
-			margin: 0;
-			padding: 0;
-		}
-		
-		nav ul a {
-			color: darkgreen;
-			text-decoration: none;
-		}
+/* IE hack */
+* html #left {
+  left: 150px;
+}
 
-		#header, #footer {
-			font-size: large;
-			padding: 0.3em;
-			background: #BCCE98;
-		}
+/* Make the columns the same height as each other */
+#container {
+  overflow: hidden;
+}
 
-		#left {
-			background: #DAE9BC;
-		}
-		
-		#right {
-			background: #F7FDEB;
-		}
+#container .column {
+  padding-bottom: 1001em;
+  margin-bottom: -1000em;
+}
 
-		#center {
-			background: #fff;
-		}
+/* Fix for the footer */
+* html body {
+  overflow: hidden;
+}
 
-		#container .column {
-			padding-top: 1em;
-		}
-		
-		.hidden {
-			visibility: hidden;
-			overflow: hidden;
-			width: 0px;
-			height: 0px;
-		}
-		.anc {
-			  background-color: gray;
-			  color: white;
-			  padding: 50px 50px;
-			  text-align: center;
-			  text-decoration: none;
-			  display: inline-block;
-			  border: 1px solid white;
-			}
+* html #footer-wrapper {
+  float: left;
+  position: relative;
+  width: 100%;
+  padding-bottom: 10010px;
+  margin-bottom: -10000px;
+  background: #fff;
+}
 
-			a:hover, a:active {
-			  background-color: black;
-			}
-			
-			.rollbutton {
+/* Aesthetics */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Sans-serif;
+  line-height: 1.5em;
+}
+
+p {
+  color: #555;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul a {
+  color: darkgreen;
+  text-decoration: none;
+}
+
+#header,
+#footer {
+  font-size: large;
+  padding: 0.3em;
+  background: #bcce98;
+}
+
+#left {
+  background: #dae9bc;
+}
+
+#right {
+  background: #f7fdeb;
+}
+
+#center {
+  background: #fff;
+}
+
+#container .column {
+  padding-top: 1em;
+}
+
+.hidden {
+  visibility: hidden;
+  overflow: hidden;
+  width: 0px;
+  height: 0px;
+}
+.anc {
+  background-color: gray;
+  color: white;
+  padding: 50px 50px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border: 1px solid white;
+}
+
+a:hover,
+a:active {
+  background-color: black;
+}
+
+/* .rollbutton {
 			  background-color: white; 
 			  color: black; 
 			  border: 2px solid #f44336;
@@ -146,4 +147,53 @@
 			.rollbutton:hover {
 			  background-color: #f44336;
 			  color: white;
-			}
+			} */
+
+#content {
+  /* background-color: #000000; */
+  /* height: 100vw; */
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+button {
+  width: 5rem;
+  height: 2rem;
+  margin: auto;
+  display: block;
+  background: #c4c4c4;
+  border-radius: 5px;
+  font-weight: bold;
+  border-style: solid;
+}
+
+button:hover {
+  background-color: #ffffff;
+}
+
+#dice__container1 div,
+#dice__container2 div,
+#dice__container3 div {
+  margin: 30px auto;
+  display: block;
+  border: 4px solid #ffffff;
+  width: 150px;
+  height: 150px;
+  /* float: left; */
+}
+
+#dice__container1 img,
+#dice__container2 img,
+#dice__container3 img {
+  margin: auto;
+  height: 140px;
+  width: 140px;
+  display: block;
+  padding-top: 5px;
+  animation-duration: 1s;
+  /* float: left; */
+}
+
+.disabled {
+  opacity: 0.6;
+}

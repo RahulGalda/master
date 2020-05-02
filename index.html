@@ -6,7 +6,8 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>3 DICE DEMO</title>
 	<link rel="stylesheet" href="css/styles.css">
-	<link rel="stylesheet" href="css/flipcard.css">
+  <link rel="stylesheet" href="css/flipcard.css">
+
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	</style>
 	
@@ -25,7 +26,6 @@
 			
 				<h1>Welcome to the Online Dice Game</h1>
 				
-			
 			</article>	
 			<div class ="form">
 			<h4>Please choose the card color for bet</h4>
@@ -46,7 +46,13 @@
 			</ul>
 				</div>	
 		
-	<button class="rollbutton">Roll Dice</button>
+  <div id="content" class="rollbutton">
+    <div id="dice__container1"> </div>
+    <div id="dice__container2"> </div>
+    <div id="dice__container3"> </div>
+    <button type="button" id="dice__button" onclick="rollDice()">Roll dice</button>
+    </div>
+
 	<div class="grid">
       <!-- #str heroes -->
       <!-- #abaddon -->
@@ -132,12 +138,7 @@
 	  
 	  </div>
 	
-	</main>
-	
-	
-	
-	
-	
+  </main>
 	
 
 		<div id="right" class="column">
@@ -149,10 +150,13 @@
 
 	<div id="footer-wrapper">
 		<footer id="footer"><p>copyrights reserved 2020</p></footer>
-	</div>
+  </div>
+
+</div>
 
 </body>
 
+<script src="js/dice.js"></script>
 <script>
  
 $(document).ready(function() {
