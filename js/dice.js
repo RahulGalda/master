@@ -19,6 +19,9 @@ diceImage3.setAttribute("id", "dice__img2");
 
 var cardFlippedStatus = [false, false, false, false, false, false];
 
+var red_displayed_card_count = 0;
+var black_displayed_card_count = 0;
+
 let displayDice1 = function (diceNumber) {
   switch (diceNumber) {
     case 1:
@@ -96,7 +99,8 @@ let rollDice = function () {
   rollButton.disabled = true;
   let counter = 0;
   let numberOfRolls = Math.floor(Math.random() * 3 + 5);
-  //   console.log("Number of rolls: " + numberOfRolls);
+  console.log("Number of rolls: " + numberOfRolls);
+  reset_cards();
   let frame = setInterval(displayRoll, 500);
   displayRoll();
   let rollsCompleted = setInterval(function () {
@@ -107,8 +111,8 @@ let rollDice = function () {
       clearInterval(rollsCompleted);
       rollButton.classList.remove("disabled");
       rollButton.disabled = false;
-      calculateScore();
       open_cards();
+      calculateScore();
     }
   }, 500);
 };
@@ -130,15 +134,6 @@ displayDice3(diceNumber3);
 // console.log("Dice 2 value: " + diceNumber2);
 // console.log("Dice 3 value: " + diceNumber3);
 console.log(rollButton);
-
-function calculateScore() {
-  var tbetValue = $("#betvalue").text();
-  var tbetColor = $("#betcolor").text();
-  var tScore = 0;
-
-  console.log("bet value is: " + tbetValue);
-  console.log("bet color is: " + tbetColor);
-}
 
 function flip() {
   // $(".card").toggleClass("flipped");
@@ -168,7 +163,26 @@ function open_cards() {
     cardFlippedStatus[diceNumber2 - 1] = true;
     cardFlippedStatus[diceNumber3 - 1] = true;
   }
+  count_cards(diceNumber1);
+  count_cards(diceNumber2);
+  count_cards(diceNumber3);
+
   display_cards(cardFlippedStatus);
+}
+
+function count_cards(number) {
+  switch (number) {
+    case 1:
+    case 2:
+    case 3:
+      red_displayed_card_count = red_displayed_card_count + 1;
+      break;
+    case 4:
+    case 5:
+    case 6:
+      black_displayed_card_count = black_displayed_card_count + 1;
+      break;
+  }
 }
 
 function display_cards(card_status_array) {
@@ -184,6 +198,27 @@ function display_cards(card_status_array) {
   });
 }
 
+function calculateScore() {
+  var tbetValue = $("#betvalue").text();
+  var tbetColor = $("#betcolor").text();
+  var tScore = 0;
+
+  console.log("bet value is: " + tbetValue);
+  console.log("bet color is: " + tbetColor);
+
+  if (tbetColor == "red") {
+    tScore = red_displayed_card_count * tbetValue;
+  } else if (tbetColor == "black") {
+    tScore = black_displayed_card_count * tbetValue;
+  }
+
+  console.log("Red Cards: " + red_displayed_card_count);
+  console.log("Black Cards: " + black_displayed_card_count);
+  console.log("score is: " + tScore);
+
+  $("#betscore").text("" + tScore);
+}
+
 function reset_cards() {
   console.log("cards Reset");
 
@@ -197,4 +232,7 @@ function reset_cards() {
     }
   });
   cardFlippedStatus = [false, false, false, false, false, false];
+
+  red_displayed_card_count = 0;
+  black_displayed_card_count = 0;
 }
