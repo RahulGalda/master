@@ -17,6 +17,8 @@ diceImage2.setAttribute("id", "dice__img2");
 let diceImage3 = document.createElement("IMG");
 diceImage3.setAttribute("id", "dice__img2");
 
+var cardFlippedStatus = [false, false, false, false, false, false];
+
 let displayDice1 = function (diceNumber) {
   switch (diceNumber) {
     case 1:
@@ -105,6 +107,8 @@ let rollDice = function () {
       clearInterval(rollsCompleted);
       rollButton.classList.remove("disabled");
       rollButton.disabled = false;
+      calculateScore();
+      open_cards();
     }
   }, 500);
 };
@@ -126,3 +130,71 @@ displayDice3(diceNumber3);
 // console.log("Dice 2 value: " + diceNumber2);
 // console.log("Dice 3 value: " + diceNumber3);
 console.log(rollButton);
+
+function calculateScore() {
+  var tbetValue = $("#betvalue").text();
+  var tbetColor = $("#betcolor").text();
+  var tScore = 0;
+
+  console.log("bet value is: " + tbetValue);
+  console.log("bet color is: " + tbetColor);
+}
+
+function flip() {
+  // $(".card").toggleClass("flipped");
+  // openCards();
+  // reset_cards();
+}
+
+function open_cards() {
+  if (diceNumber1 == diceNumber2 && diceNumber2 == diceNumber3) {
+    console.log("condition 1");
+    cardFlippedStatus[diceNumber1 - 1] = true;
+  } else if (diceNumber1 == diceNumber2) {
+    console.log("condition 2");
+    cardFlippedStatus[diceNumber1 - 1] = true;
+    cardFlippedStatus[diceNumber3 - 1] = true;
+  } else if (diceNumber1 == diceNumber3) {
+    console.log("condition 3");
+    cardFlippedStatus[diceNumber1 - 1] = true;
+    cardFlippedStatus[diceNumber2 - 1] = true;
+  } else if (diceNumber2 == diceNumber3) {
+    console.log("condition 4");
+    cardFlippedStatus[diceNumber1 - 1] = true;
+    cardFlippedStatus[diceNumber2 - 1] = true;
+  } else {
+    console.log("condition 5");
+    cardFlippedStatus[diceNumber1 - 1] = true;
+    cardFlippedStatus[diceNumber2 - 1] = true;
+    cardFlippedStatus[diceNumber3 - 1] = true;
+  }
+  display_cards(cardFlippedStatus);
+}
+
+function display_cards(card_status_array) {
+  console.log("Display Cards\n");
+  card_status_array.forEach(function myFunction(value, index) {
+    var card_number = index + 1;
+    var card_id = "#card_" + card_number;
+
+    console.log("card number: " + card_number + " value: " + value);
+    if (value == true) {
+      $(card_id).toggleClass("flipped");
+    }
+  });
+}
+
+function reset_cards() {
+  console.log("cards Reset");
+
+  cardFlippedStatus.forEach(function myFunction(value, index) {
+    var card_number = index + 1;
+    var card_id = "#card_" + card_number;
+
+    console.log("card number: " + card_number + " value: " + value);
+    if (value == true) {
+      $(card_id).toggleClass("flipped");
+    }
+  });
+  cardFlippedStatus = [false, false, false, false, false, false];
+}

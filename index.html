@@ -52,12 +52,9 @@
     <div id="dice__container3"> </div>
     <button type="button" id="dice__button" onclick="rollDice()">Roll dice</button>
     </div>
-
+<!-- 
 	<div class="grid">
-      <!-- #str heroes -->
-      <!-- #abaddon -->
-
-      <div class="flip-card">
+      <div class="flip-card" >
         <div class="flip-card-inner">
           <div class="flip-card-front">
             <br />
@@ -136,14 +133,67 @@
       </div>
 
 	  
-	  </div>
+    </div>  -->
+    
+
+
+<div class="grid">
+  <section class="container">
+    <div class="card" id="card_1" onclick="flip()">
+      <div class="front"></div>
+      <div class="back_red">1</div>
+    </div>
+  </section>
+
+  <section class="container">
+    <div class="card" id="card_2" >
+      <div class="front"></div>
+      <div class="back_red">2</div>
+    </div>
+  </section>
+
+  <section class="container">
+    <div class="card" id="card_3">
+      <div class="front"></div>
+      <div class="back_red">3</div>
+    </div>
+  </section>
+
+  <section class="container">
+    <div class="card" id="card_4" onclick="flip()">
+      <div class="front"></div>
+      <div class="back_black">4</div>
+    </div>
+  </section>
+
+  <section class="container">
+    <div class="card" id="card_5" >
+      <div class="front"></div>
+      <div class="back_black">5</div>
+    </div>
+  </section>
+
+  <section class="container">
+    <div class="card" id="card_6">
+      <div class="front"></div>
+      <div class="back_black">6</div>
+    </div>
+  </section>
+  
+  
+</div>
+
+    <button onclick="reset_cards()">Reset cards</button>
 	
   </main>
 	
 
 		<div id="right" class="column">
 			<h5>Your Bet Amount</h5>
-			<div id="betvalue"></div>
+      <div id="betvalue"> ** </div>
+      <h5>Your Bet Color</h5>
+      <div id="betcolor"> ** </div>
+
 		</div>
 
 	</div>
@@ -176,9 +226,10 @@ $(".rollbutton").hide();
 	$(".form a").click(function(){
             var radioValue = $("input[name='color']:checked").val();
             if(radioValue){
-                alert("You chose - " + radioValue+ "color");
+                // alert("You chose - " + radioValue+ "color");
 				$(".form").hide();
-				$("#betvalue").append("<h5>Your Bet Color</h5><div id='betcolor'>"+radioValue+"</div>")
+        // $("#betvalue").append("<h5>Your Bet Color</h5><div id='betcolor'>"+radioValue+"</div>")
+        $("#betcolor").text(radioValue);
 				$(".rollbutton").show();
 				$(".grid").show();
             }
