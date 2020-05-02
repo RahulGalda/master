@@ -1,0 +1,184 @@
+<HTML.am>
+ <!DOCTYPE html>
+<!-- Template by html.am -->
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>3 DICE DEMO</title>
+	<link rel="stylesheet" href="css/styles.css">
+	<link rel="stylesheet" href="css/flipcard.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	</style>
+	
+</head>
+<script type='text/javascript'
+  src='http://code.jquery.com/jquery-1.10.1.js'></script>
+  
+<body>
+
+	<header id="header"><a href="index.html" ><i class="fa fa-home"></i> Home</a></header>
+
+	<div id="container">
+
+		<main id="center" class="column">
+			<article>
+			
+				<h1>Welcome to the Online Dice Game</h1>
+				
+			
+			</article>	
+			<div class ="form">
+			<h4>Please choose the card color for bet</h4>
+				<form>
+				  <input type="radio" id="red" name="color" value="red">
+				  <label >Red</label><br>
+				  <input type="radio" id="black" name="color" value="black">
+				  <label >Black</label><br>
+				</form> 
+				<a href="#" class ="play"><i class="fa fa-play"></i> Play Game</a>
+			</div>
+		<div class="left">
+		<h3>Please Select the Bet Value</h3>
+		
+			<ul>
+				<a class="anc" href="#" value = "100" >Bet Value 100</a>
+				<a class="anc" href="#" value = "500" >Bet Value 500</a>
+			</ul>
+				</div>	
+		
+	<button class="rollbutton">Roll Dice</button>
+	<div class="grid">
+      <!-- #str heroes -->
+      <!-- #abaddon -->
+
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <br />
+			<p>Front</p>
+          </div>
+          <div class="flip-card-back">
+            <br />
+            <p>Back</p>
+          </div>
+        </div>
+      </div>
+	  
+	  <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <br />
+			<p>Front</p>
+          </div>
+          <div class="flip-card-back">
+            <br />
+			<p>Back</p>
+          </div>
+        </div>
+      </div>
+	  
+	  <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <br />
+			<p>Front</p>
+          </div>
+          <div class="flip-card-back">
+            <br />
+            <p>Back</p>
+          </div>
+        </div>
+      </div>
+	  
+	  <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <br />
+			<p>Front</p>
+          </div>
+          <div class="flip-card-back">
+            <br />
+            <p>Back</p>
+          </div>
+        </div>
+      </div>
+	  
+	  <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <br />
+            <p>Front</p>
+          </div>
+          <div class="flip-card-back">
+            <br />
+            <p>Back</p>
+          </div>
+        </div>
+      </div>
+	  
+	  <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <br />
+			<p>Front</p>
+          </div>
+          <div class="flip-card-back">
+            <br />
+            <p>Back</p>
+          </div>
+        </div>
+      </div>
+
+	  
+	  </div>
+	
+	</main>
+	
+	
+	
+	
+	
+	
+
+		<div id="right" class="column">
+			<h5>Your Bet Amount</h5>
+			<div id="betvalue"></div>
+		</div>
+
+	</div>
+
+	<div id="footer-wrapper">
+		<footer id="footer"><p>copyrights reserved 2020</p></footer>
+	</div>
+
+</body>
+
+<script>
+ 
+$(document).ready(function() {
+$("#right").hide();
+$(".form").hide();
+$(".grid").hide();
+$(".rollbutton").hide();
+    $(".left a").click(function(event) {
+		$("#betvalue").text($(this).attr('value'));
+		$(".left").hide();
+		$("#right").show();
+		$(".form").show();
+		
+		
+    });
+	
+	$(".form a").click(function(){
+            var radioValue = $("input[name='color']:checked").val();
+            if(radioValue){
+                alert("You chose - " + radioValue+ "color");
+				$(".form").hide();
+				$("#betvalue").append("<h5>Your Bet Color</h5><div id='betcolor'>"+radioValue+"</div>")
+				$(".rollbutton").show();
+				$(".grid").show();
+            }
+        });
+});
+</script>
+</html>
